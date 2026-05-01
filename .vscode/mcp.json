@@ -1,0 +1,37 @@
+{
+  "servers": {
+    "pyspark-mcp": {
+      "type": "http",
+      "url": "http://127.0.0.1:8090/mcp"
+    },
+    "filesystem": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "${workspaceFolder}"
+      ]
+    },
+    "github": {
+      "type": "http",
+      "url": "http://127.0.0.1:8091/mcp",
+      "headers": {
+        "Authorization": "Bearer ${input:github_token}"
+      }
+    },
+    "databricks": {
+      "type": "stdio",
+      "command": "databricks",
+      "args": ["mcp", "start"]
+    }
+  },
+  "inputs": [
+    {
+      "id": "github_token",
+      "description": "GitHub Personal Access Token",
+      "type": "promptString",
+      "password": true
+    }
+  ]
+}
