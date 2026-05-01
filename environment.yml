@@ -1,0 +1,19 @@
+name: mcp-servers
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python version — 3.10 is required for full compatibility with all MCP packages
+  - python=3.10
+
+  # Java 17 (required by PySpark / Apache Spark)
+  - openjdk=17
+
+  # pip — used to install Python MCP packages from requirements.txt
+  - pip
+
+  - pip:
+      # Install all Python MCP package requirements
+      - -r requirements.txt

@@ -1,0 +1,22 @@
+# -----------------------------------------------------------------------
+# MCP Servers — Python requirements
+# Compatible with Python 3.10 (see environment.yml / conda-setup.md)
+# -----------------------------------------------------------------------
+
+# PySpark MCP server (exposes Spark tools to GitHub Copilot Agent)
+pyspark-mcp>=0.1.0
+
+# Apache PySpark runtime (must match your Spark cluster version)
+pyspark>=3.4.0,<4.0.0
+
+# Databricks SDK / CLI Python bindings (used by the Databricks MCP server)
+databricks-sdk>=0.20.0
+
+# -----------------------------------------------------------------------
+# Note: The Filesystem MCP server (@modelcontextprotocol/server-filesystem)
+# is a Node.js package — install it with:
+#   npm install -g @modelcontextprotocol/server-filesystem
+#
+# Note: The Databricks CLI binary (Go) is installed separately — see
+#   docs/databricks-mcp.md for platform-specific installation steps.
+# -----------------------------------------------------------------------
