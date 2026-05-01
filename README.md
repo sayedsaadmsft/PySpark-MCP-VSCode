@@ -29,12 +29,26 @@
 |---|---|---|
 | VS Code | 1.99 | `code --version` |
 | GitHub Copilot extension | latest | Extensions panel |
-| Python | 3.8 | `python --version` |
-| Java (JDK) | 11 | `java -version` |
+| Python | 3.10 | `python --version` |
+| Java (JDK) | 17 | `java -version` |
 | Node.js | 18 | `node --version` |
 | Databricks CLI | 0.200 | `databricks --version` |
+| Miniconda / Anaconda | latest | `conda --version` |
+
+> **Conda users:** see the [Conda Environment Setup guide](docs/conda-setup.md) for a one-script setup on Windows.
 
 ### 2 — Install the servers
+
+#### Option A — Conda (recommended for Windows)
+
+```powershell
+# From the repository root in PowerShell:
+.\scripts\setup-conda-env.ps1
+```
+
+This creates a `mcp-servers` conda environment with Python 3.10, Java 17, and all Python MCP packages from `requirements.txt`.
+
+#### Option B — pip (any platform)
 
 ```bash
 # PySpark MCP (Python)
@@ -121,10 +135,15 @@ List all running clusters in my Databricks workspace.
 ├── .vscode/
 │   └── mcp.json          # VS Code MCP server registrations (all 4 servers)
 ├── docs/
+│   ├── conda-setup.md    # Conda environment setup guide (Windows / PowerShell)
 │   ├── pyspark-mcp.md    # PySpark MCP server — full guide
 │   ├── filesystem-mcp.md # Filesystem MCP server — full guide
 │   ├── github-mcp.md     # GitHub MCP server — full guide
 │   └── databricks-mcp.md # Databricks MCP server — full guide
+├── scripts/
+│   └── setup-conda-env.ps1  # PowerShell script — create & configure conda env
+├── environment.yml       # Conda environment spec (Python 3.10, Java 17)
+├── requirements.txt      # Python MCP package requirements
 └── README.md             # This file
 ```
 
@@ -134,6 +153,7 @@ List all running clusters in my Databricks workspace.
 
 Each MCP server has its own step-by-step guide with installation, configuration, available tools, and troubleshooting:
 
+- 🐍 [Conda Environment Setup](docs/conda-setup.md) ← **start here on Windows**
 - 🔥 [PySpark MCP Server](docs/pyspark-mcp.md)
 - 📁 [Filesystem MCP Server](docs/filesystem-mcp.md)
 - 🐙 [GitHub MCP Server](docs/github-mcp.md)
